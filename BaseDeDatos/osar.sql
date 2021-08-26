@@ -19,7 +19,7 @@ USE `osar` ;
 -- Table `osar`.`Usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `osar`.`Usuario` (
-  `idUsuario` INT NOT NULL,
+  `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `nombreCompleto` VARCHAR(100) NOT NULL,
   `tipoPersona` VARCHAR(40) NOT NULL,
   `edad` INT NOT NULL,
@@ -37,6 +37,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `osar`.`Inversor` (
   `idUsuario` INT NOT NULL,
   `totalDinero` DECIMAL NULL DEFAULT 50,
+  `totalMeGusta` INT NULL,
   PRIMARY KEY (`idUsuario`),
   UNIQUE INDEX `idUsuario_UNIQUE` (`idUsuario` ASC) VISIBLE,
   CONSTRAINT `fk_Inversor_usuario1`
@@ -70,21 +71,18 @@ CREATE TABLE IF NOT EXISTS `osar`.`Proyecto` (
   `name` VARCHAR(80) NOT NULL,
   `fechaInicio` DATE NOT NULL,
   `fechaTermino` DATE NULL,
-  `imagen` BLOB NOT NULL,
+  `imagen` BLOB NULL,
   `Descripcion` VARCHAR(300) NOT NULL,
   `Estatus` VARCHAR(45) NOT NULL,
   `precioInversion` INT NOT NULL,
   `totalCorazones` INT NULL,
   `totalParticipantes` INT NULL,
   `idUsuario` INT NOT NULL,
-  `Founding_idUsuario` INT NOT NULL,
   `tipoFounding` VARCHAR(45) NULL,
-  PRIMARY KEY (`idProyecto`, `Founding_idUsuario`),
-  UNIQUE INDEX `idUsuario_UNIQUE` (`idUsuario` ASC) VISIBLE,
+  PRIMARY KEY (`idProyecto`, `idUsuario`),
   UNIQUE INDEX `idProyecto_UNIQUE` (`idProyecto` ASC) VISIBLE,
-  INDEX `fk_Proyecto_Founding1_idx` (`Founding_idUsuario` ASC) VISIBLE,
   CONSTRAINT `fk_Proyecto_Founding1`
-    FOREIGN KEY (`Founding_idUsuario`)
+    FOREIGN KEY (`idUsuario`)
     REFERENCES `osar`.`Founding` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -95,15 +93,17 @@ ENGINE = InnoDB;
 -- Table `osar`.`Proyecto_has_Inversor`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `osar`.`Proyecto_has_Inversor` (
-  `Proyecto_idProyecto` INT NOT NULL,
+  `idProyectoInversion` INT NOT NULL AUTO_INCREMENT,
   `Inversor_idUsuario` INT NOT NULL,
-  `totalInvertido` DECIMAL(10,2) NULL,
+  `Proyecto_idProyecto` INT NOT NULL,
+  `totalInvertido` INT NULL,
   `totalTiempo` INT NULL,
   `totalConocimientos` INT NULL,
   `tipoInversion` VARCHAR(45) NULL,
-  PRIMARY KEY (`Proyecto_idProyecto`, `Inversor_idUsuario`),
+  PRIMARY KEY (`idProyectoInversion`, `Inversor_idUsuario`, `Proyecto_idProyecto`),
   INDEX `fk_Proyecto_has_Inversor_Inversor1_idx` (`Inversor_idUsuario` ASC) VISIBLE,
   INDEX `fk_Proyecto_has_Inversor_Proyecto1_idx` (`Proyecto_idProyecto` ASC) VISIBLE,
+  UNIQUE INDEX `idProyectoInversion_UNIQUE` (`idProyectoInversion` ASC) VISIBLE,
   CONSTRAINT `fk_Proyecto_has_Inversor_Proyecto1`
     FOREIGN KEY (`Proyecto_idProyecto`)
     REFERENCES `osar`.`Proyecto` (`idProyecto`)
