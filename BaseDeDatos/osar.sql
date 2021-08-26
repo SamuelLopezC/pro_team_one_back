@@ -36,8 +36,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `osar`.`Inversor` (
   `idUsuario` INT NOT NULL,
-  `tipoInversion` VARCHAR(45) NOT NULL,
-  `cantidadInversion` DECIMAL NULL,
+  `totalDinero` DECIMAL NULL DEFAULT 50,
   PRIMARY KEY (`idUsuario`),
   UNIQUE INDEX `idUsuario_UNIQUE` (`idUsuario` ASC) VISIBLE,
   CONSTRAINT `fk_Inversor_usuario1`
@@ -101,6 +100,7 @@ CREATE TABLE IF NOT EXISTS `osar`.`Proyecto_has_Inversor` (
   `totalInvertido` DECIMAL(10,2) NULL,
   `totalTiempo` INT NULL,
   `totalConocimientos` INT NULL,
+  `tipoInversion` VARCHAR(45) NULL,
   PRIMARY KEY (`Proyecto_idProyecto`, `Inversor_idUsuario`),
   INDEX `fk_Proyecto_has_Inversor_Inversor1_idx` (`Inversor_idUsuario` ASC) VISIBLE,
   INDEX `fk_Proyecto_has_Inversor_Proyecto1_idx` (`Proyecto_idProyecto` ASC) VISIBLE,
@@ -120,14 +120,3 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-INSERT INTO osar.Usuario(idUsuario, nombreCompleto, tipoPersona, edad, email, password, tipoUsuario)
-VALUES
-('01','Elias Flores Vazquez', 'Persona física', '25', 'eliasfv25@gmail.com','12345678', 'inversor'),
-('02','Samuel López Cabrera', 'Persona moral', '18', 'samuellopez.dev@gmail.com','12345678', 'founding');
-
-SHOW DATABASES;
-USE osar; 
-SHOW TABLES;
-
-select * from osar.Usuario;
