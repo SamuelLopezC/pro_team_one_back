@@ -16,9 +16,9 @@ CREATE SCHEMA IF NOT EXISTS `osar` DEFAULT CHARACTER SET utf8 ;
 USE `osar` ;
 
 -- -----------------------------------------------------
--- Table `osar`.`Usuario`
+-- Table `osar`.`usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `osar`.`Usuario` (
+CREATE TABLE IF NOT EXISTS `osar`.`usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `nombreCompleto` VARCHAR(100) NOT NULL,
   `tipoPersona` VARCHAR(40) NOT NULL,
@@ -32,9 +32,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `osar`.`Inversor`
+-- Table `osar`.`inversor`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `osar`.`Inversor` (
+CREATE TABLE IF NOT EXISTS `osar`.`inversor` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `totalDinero` DECIMAL NULL DEFAULT 50,
   `totalMeGusta` INT NULL,
@@ -42,36 +42,36 @@ CREATE TABLE IF NOT EXISTS `osar`.`Inversor` (
   UNIQUE INDEX `idUsuario_UNIQUE` (`idUsuario` ASC) VISIBLE,
   CONSTRAINT `fk_Inversor_usuario1`
     FOREIGN KEY (`idUsuario`)
-    REFERENCES `osar`.`Usuario` (`idUsuario`)
+    REFERENCES `osar`.`usuario` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `osar`.`Founding`
+-- Table `osar`.`founding`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `osar`.`Founding` (
+CREATE TABLE IF NOT EXISTS `osar`.`founding` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idUsuario`),
   UNIQUE INDEX `idUsuario_UNIQUE` (`idUsuario` ASC) VISIBLE,
   CONSTRAINT `fk_Founding_usuario`
     FOREIGN KEY (`idUsuario`)
-    REFERENCES `osar`.`Usuario` (`idUsuario`)
+    REFERENCES `osar`.`usuario` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `osar`.`Proyecto`
+-- Table `osar`.`proyecto`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `osar`.`Proyecto` (
+CREATE TABLE IF NOT EXISTS `osar`.`proyecto` (
   `idProyecto` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(80) NOT NULL,
   `fechaInicio` DATE NOT NULL,
   `fechaTermino` DATE NULL,
-  `imagen` BLOB NULL,
+  `imagen` VARCHAR(100) NULL,
   `Descripcion` VARCHAR(300) NOT NULL,
   `Estatus` VARCHAR(45) NOT NULL,
   `precioInversion` INT NOT NULL,
@@ -83,35 +83,35 @@ CREATE TABLE IF NOT EXISTS `osar`.`Proyecto` (
   UNIQUE INDEX `idProyecto_UNIQUE` (`idProyecto` ASC) VISIBLE,
   CONSTRAINT `fk_Proyecto_Founding1`
     FOREIGN KEY (`idUsuario`)
-    REFERENCES `osar`.`Founding` (`idUsuario`)
+    REFERENCES `osar`.`founding` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `osar`.`Proyecto_has_Inversor`
+-- Table `osar`.`proyecto_has_Inversor`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `osar`.`Proyecto_has_Inversor` (
+CREATE TABLE IF NOT EXISTS `osar`.`proyecto_has_Inversor` (
   `idProyectoInversion` INT NOT NULL AUTO_INCREMENT,
-  `Inversor_idUsuario` INT NOT NULL,
-  `Proyecto_idProyecto` INT NOT NULL,
+  `inversor_idUsuario` INT NOT NULL,
+  `proyecto_idProyecto` INT NOT NULL,
   `totalInvertido` INT NULL,
   `totalTiempo` INT NULL,
   `totalConocimientos` INT NULL,
   `tipoInversion` VARCHAR(45) NULL,
-  PRIMARY KEY (`idProyectoInversion`, `Inversor_idUsuario`, `Proyecto_idProyecto`),
-  INDEX `fk_Proyecto_has_Inversor_Inversor1_idx` (`Inversor_idUsuario` ASC) VISIBLE,
-  INDEX `fk_Proyecto_has_Inversor_Proyecto1_idx` (`Proyecto_idProyecto` ASC) VISIBLE,
+  PRIMARY KEY (`idProyectoInversion`, `inversor_idUsuario`, `proyecto_idProyecto`),
+  INDEX `fk_Proyecto_has_Inversor_Inversor1_idx` (`inversor_idUsuario` ASC) VISIBLE,
+  INDEX `fk_Proyecto_has_Inversor_Proyecto1_idx` (`proyecto_idProyecto` ASC) VISIBLE,
   UNIQUE INDEX `idProyectoInversion_UNIQUE` (`idProyectoInversion` ASC) VISIBLE,
   CONSTRAINT `fk_Proyecto_has_Inversor_Proyecto1`
-    FOREIGN KEY (`Proyecto_idProyecto`)
-    REFERENCES `osar`.`Proyecto` (`idProyecto`)
+    FOREIGN KEY (`proyecto_idProyecto`)
+    REFERENCES `osar`.`proyecto` (`idProyecto`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Proyecto_has_Inversor_Inversor1`
-    FOREIGN KEY (`Inversor_idUsuario`)
-    REFERENCES `osar`.`Inversor` (`idUsuario`)
+    FOREIGN KEY (`inversor_idUsuario`)
+    REFERENCES `osar`.`inversor` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
