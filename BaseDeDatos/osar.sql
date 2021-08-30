@@ -35,7 +35,7 @@ ENGINE = InnoDB;
 -- Table `osar`.`Inversor`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `osar`.`Inversor` (
-  `idUsuario` INT NOT NULL,
+  `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `totalDinero` DECIMAL NULL DEFAULT 50,
   `totalMeGusta` INT NULL,
   PRIMARY KEY (`idUsuario`),
@@ -52,7 +52,7 @@ ENGINE = InnoDB;
 -- Table `osar`.`Founding`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `osar`.`Founding` (
-  `idUsuario` INT NOT NULL,
+  `idUsuario` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idUsuario`),
   UNIQUE INDEX `idUsuario_UNIQUE` (`idUsuario` ASC) VISIBLE,
   CONSTRAINT `fk_Founding_usuario`
@@ -67,7 +67,7 @@ ENGINE = InnoDB;
 -- Table `osar`.`Proyecto`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `osar`.`Proyecto` (
-  `idProyecto` INT NOT NULL,
+  `idProyecto` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(80) NOT NULL,
   `fechaInicio` DATE NOT NULL,
   `fechaTermino` DATE NULL,
