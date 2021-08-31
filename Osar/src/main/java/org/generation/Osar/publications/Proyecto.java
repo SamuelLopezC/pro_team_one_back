@@ -41,7 +41,7 @@ public class Proyecto {
         this.fechatermino = fechatermino;
         this.imagen = imagen;
         this.descripcion = descripcion;
-        Estatus = estatus;
+        this.Estatus = estatus;
         this.precioinversion = precioinversion;
         this.totalcorazones = totalcorazones;
         this.totalparticipantes = totalparticipantes;

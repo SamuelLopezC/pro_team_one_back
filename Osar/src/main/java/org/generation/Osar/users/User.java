@@ -104,5 +104,7 @@ public class User { // Plan Old Java Object - POJO
                 ", password='" + password + '\'' +
                 ", userType='" + userType + '\'' +
                 '}';
-    } // ends toString method
-}//class User
+    } // ends toString metho
+
+}
+
