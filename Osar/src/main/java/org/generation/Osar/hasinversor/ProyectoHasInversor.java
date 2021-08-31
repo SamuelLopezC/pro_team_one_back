@@ -1,4 +1,4 @@
-package org.generation.Osar.hasInversor;
+package org.generation.Osar.hasinversor;
 
 
 import javax.persistence.*;
