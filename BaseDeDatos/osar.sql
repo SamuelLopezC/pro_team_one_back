@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `osar`.`proyecto` (
   `name` VARCHAR(80) NOT NULL,
   `fechainicio` DATE NOT NULL,
   `fechatermino` DATE NULL,
-  `imagen` VARCHAR(100) NULL,
+  `imagen` VARCHAR(300) NULL,
   `descripcion` VARCHAR(300) NOT NULL,
   `estatus` VARCHAR(45) NOT NULL,
   `precioinversion` INT NOT NULL,

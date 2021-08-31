@@ -30,7 +30,7 @@ public class ProyectoController {
     }//deleteproyecto
 
 
-    @PostMapping(path="{idproyecto}")
+    @PostMapping
     public void addProyecto(@RequestBody Proyecto pycto){
         Ps.addProyecto(pycto);
     }//addproyecto

@@ -12,13 +12,13 @@ SELECT idusuario From osar.usuario where tipousuario = 'founding';
 INSERT INTO osar.inversor(idusuario)
 SELECT idusuario From osar.usuario where tipousuario = 'inversor';
 
-INSERT INTO osar.proyecto (name, fechainicio, fechatermino, descripcion, estatus, precioinversion,totalcorazones, totalparticipantes,idusuario,tipofounding)
+INSERT INTO osar.proyecto (name, fechainicio, fechatermino, imagen, descripcion, estatus, precioinversion,totalcorazones, totalparticipantes,idusuario,tipofounding)
 VALUES
-('Salvando a Rufino', '2022-08-26', '2022-09-26', 'Salvemos a rufino del maltrato de su dueño.', 'Activo', '100000',' 0', '0', '2', 'Monetario'),
-('Adopta', '2022-08-26', '2022-09-26', 'Buscamos a personas que nos apoyen con donativos o adoptando perritos y gatitos. Si requires más información sigue nuesta pagina de facebook "Adóptame México"
+('Salvando a Rufino', '2022-08-26', '2022-09-26', 'https://res.cloudinary.com/rsosar2021/image/upload/v1630448640/osar/proyectos/F6IFLUUKR5D6FNRBK6ID6CFSQI_qler0v.jpg','Salvemos a rufino del maltrato de su dueño.', 'Activo', '100000',' 0', '0', '2', 'Monetario'),
+('Adopta', '2022-08-26', '2022-09-26','https://res.cloudinary.com/rsosar2021/image/upload/v1630448278/osar/proyectos/adopts_u2e84i.jpg', 'Buscamos a personas que nos apoyen con donativos o adoptando perritos y gatitos. Si requires más información sigue nuesta pagina de facebook "Adóptame México"
 ', 'Activo', '20000', '0', '0', '2', 'Monetario'),
-('Reciclando Residuos', '2022-08-26', '2022-09-26', 'Se parte de el cambio ecológico para una mejor ciudad, si quieres ser parte de esta campaña deveras presentarte con ropa comoda, bolsas de basura y una gran actitud, te esperamos en estación hidalgo.', 'Activo', '10000', '0', '0', '4', 'Monetario'),
-('Ecológica Maya', '2022-08-26', '2022-09-26', 'Estamos buscando apoyo voluntario, para limpiar las areas verdes que lo necesiten, si estas dispuesto a ayudar comunicate al 5504157600', 'Activo', '10000', '0', '0', '4', 'Monetario');
+('Reciclando Residuos', '2022-08-26', '2022-09-26','https://res.cloudinary.com/rsosar2021/image/upload/v1630448439/osar/proyectos/guia-reciclar-1280x720_yynld1.jpg', 'Se parte de el cambio ecológico para una mejor ciudad, si quieres ser parte de esta campaña deveras presentarte con ropa comoda, bolsas de basura y una gran actitud, te esperamos en estación hidalgo.', 'Activo', '10000', '0', '0', '4', 'Monetario'),
+('Ecológica Maya', '2022-08-26', '2022-09-26', 'https://res.cloudinary.com/rsosar2021/image/upload/v1630448770/osar/proyectos/consejos_para_integrar_la_educacio%CC%81n_ecolo%CC%81gica_en_las_aulas_-_diarioresponsable_5977967976_vcqinv.jpg','Estamos buscando apoyo voluntario, para limpiar las areas verdes que lo necesiten, si estas dispuesto a ayudar comunicate al 5504157600', 'Activo', '10000', '0', '0', '4', 'Monetario');
 
 INSERT INTO osar.proyecto_has_Inversor (inversoridusuario,  proyectoidproyecto,totalinvertido, totaltiempo, totalconocimientos, tipoinversion)
 VALUES
