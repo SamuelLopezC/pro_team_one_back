@@ -32,14 +32,12 @@ public class ProyectoService {
             throw new IllegalStateException("Project does not exist " + idproyecto);
         }//ifelse
     }//deleteUser
-
-    public void addProyecto(Proyecto proyecto){
-        Optional<Proyecto> proyectoByName = Pr.findProyectoByName(proyecto.getName());
-        if(proyectoByName.isPresent()){
-            throw new IllegalStateException("Project exist!!!");
+    public void addProyecto(Proyecto pycto){
+        Optional<Proyecto> proyectByName = Pr.findProyectoByName(pycto.getName());
+        if(proyectByName.isPresent()){
+            throw new IllegalStateException("project exist");
         }//if
-        Pr.save(proyecto);
-        //Aqui falta poner el codigo de agregar proyecto
+        Pr.save(pycto);
     }//addproyecto
 
     public void updateProyecto(Long idproyecto){

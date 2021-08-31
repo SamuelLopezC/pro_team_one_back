@@ -29,11 +29,11 @@ public class ProyectoController {
         Ps.deleteProyecto(idproyecto);
     }//deleteproyecto
 
-    @PostMapping(path = "{idproyecto}")
-    public void addProyecto(@RequestBody Proyecto proyecto){
-        Ps.addProyecto(proyecto);
-    }// addProyecto
 
+    @PostMapping(path="{idproyecto}")
+    public void addProyecto(@RequestBody Proyecto pycto){
+        Ps.addProyecto(pycto);
+    }//addproyecto
 
 
     
