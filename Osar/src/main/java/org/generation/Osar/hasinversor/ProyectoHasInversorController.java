@@ -1,4 +1,4 @@
-package org.generation.Osar.hasInversor;
+package org.generation.Osar.hasinversor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
