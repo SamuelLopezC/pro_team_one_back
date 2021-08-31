@@ -34,6 +34,9 @@ public class User { // Plan Old Java Object - POJO
         this.userType = userType;
     } // ends constructor
 
+    public User() {
+    } // ends default constructor
+
     public Long getIdUser() {
         return idUser;
     } // ends getIdUser method

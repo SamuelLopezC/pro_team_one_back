@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path="api/user")
+@RequestMapping(path="/api/user/")
 public class UserController {
     private final UserService userService;
 
@@ -13,9 +13,9 @@ public class UserController {
         this.userService = userService;
     } // ends constructor
 
-    @GetMapping(path = "{userId}")
-    public User loginUser(@PathVariable Long userId) {
-        return userService.getUser(userId);
+    @GetMapping(path="{idUser}")
+    public User loginUser(@PathVariable("idUser") Long idUser) {
+        return userService.getUser(idUser);
     } // ends loginUser method (sign in)
 
     @PostMapping
@@ -24,4 +24,4 @@ public class UserController {
     } // ends signUser method (sign up)
 
     //@PostMapping
-}
+} // ends UserController class

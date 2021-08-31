@@ -12,8 +12,9 @@ public class UserService {
         this.userRepository = userRepository;
     } // ends constructor
 
-    public User getUser(Long userId) {
-        return userRepository.getById(userId);
+    public User getUser(Long idUser) {
+        return userRepository.findById(idUser).orElseThrow(
+                () -> new IllegalStateException("User does not exists " + idUser));
     } // ends getUsers method
 
     public void addUser(User usr) {
