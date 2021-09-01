@@ -45,7 +45,7 @@ public class AuthController {
     private String generateToken( String email )  {
         Calendar calendar = Calendar.getInstance();
         calendar.add( Calendar.HOUR, 10 );
-        String secret = "this-secret-is-not-very-secret-99";
+        String secret = "OSAR-es-el-lugar";
 
         return Jwts.builder().setSubject( email ).claim( "role", "user" ).setIssuedAt( new Date() ).setExpiration(
                 calendar.getTime() ).signWith( SignatureAlgorithm.HS256, secret ).compact();
