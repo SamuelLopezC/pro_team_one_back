@@ -14,11 +14,11 @@ public class OsarApplication {
 		SpringApplication.run(OsarApplication.class, args);
 	}
 
-	@Bean
-	public FilterRegistrationBean<JwtFilter> jwtFilter(){
-		FilterRegistrationBean<JwtFilter> registrationBean = new FilterRegistrationBean<>();
-		registrationBean.setFilter(new JwtFilter());
-		registrationBean.addUrlPatterns("/api/*");
-		return registrationBean;
-	}//jwtFilter
+//	@Bean
+//	public FilterRegistrationBean<JwtFilter> jwtFilter(){
+//		FilterRegistrationBean<JwtFilter> registrationBean = new FilterRegistrationBean<>();
+//		registrationBean.setFilter(new JwtFilter());
+//		registrationBean.addUrlPatterns("/api/*");
+//		return registrationBean;
+//	}//jwtFilter
 }
