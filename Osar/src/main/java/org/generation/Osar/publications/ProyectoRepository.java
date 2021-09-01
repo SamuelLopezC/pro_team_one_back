@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface ProyectoRepository extends JpaRepository<Proyecto, Long> {
     @Query("SELECT p FROM Proyecto p WHERE p.name=?1")
-    Optional<Proyecto> findProyectoByName (String name);
+    Optional<Proyecto> findProyectoByName(String name);
 }//interface
