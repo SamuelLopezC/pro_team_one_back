@@ -1,6 +1,7 @@
 package org.generation.Osar.jwt.config;
 
 public class LoginData {
+
     public class loginData {
         private final String username;
         private final String password;
