@@ -49,21 +49,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `osar`.`founding`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `osar`.`founding` (
-  `idusuario` INT NOT NULL,
-  PRIMARY KEY (`idusuario`),
-  UNIQUE INDEX `idUsuario_UNIQUE` (`idusuario` ASC) VISIBLE,
-  CONSTRAINT `fk_Founding_usuario`
-    FOREIGN KEY (`idusuario`)
-    REFERENCES `osar`.`usuario` (`idusuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `osar`.`proyecto`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `osar`.`proyecto` (
@@ -77,13 +62,14 @@ CREATE TABLE IF NOT EXISTS `osar`.`proyecto` (
   `precioinversion` INT NOT NULL,
   `totalcorazones` INT NULL,
   `totalparticipantes` INT NULL,
-  `idusuario` INT NOT NULL,
   `tipofounding` VARCHAR(45) NULL,
+  `idusuario` INT NOT NULL,
   PRIMARY KEY (`idproyecto`, `idusuario`),
   UNIQUE INDEX `idProyecto_UNIQUE` (`idproyecto` ASC) VISIBLE,
-  CONSTRAINT `fk_Proyecto_Founding1`
+  INDEX `fk_proyecto_usuario1_idx` (`idusuario` ASC) VISIBLE,
+  CONSTRAINT `fk_proyecto_usuario1`
     FOREIGN KEY (`idusuario`)
-    REFERENCES `osar`.`founding` (`idusuario`)
+    REFERENCES `osar`.`usuario` (`idusuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
