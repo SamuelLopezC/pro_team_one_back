@@ -31,8 +31,10 @@ public class Proyecto {
     private Long totalparticipantes;
     @Column(name="tipofounding", nullable = false)
     private String tipofounding;
+    @Column(name="idusuario", nullable = false)
+    private Long idusuario;
 
-    public Proyecto(Long idproyecto, String name, String fechainicio, String fechatermino, String imagen, String descripcion, String estatus, Long precioinversion, Long totalcorazones, Long totalparticipantes, String tipofounding) {
+    public Proyecto(Long idproyecto, String name, String fechainicio, String fechatermino, String imagen, String descripcion, String estatus, Long precioinversion, Long totalcorazones, Long totalparticipantes, String tipofounding, Long idusuario) {
         this.idproyecto = idproyecto;
         this.name = name;
         this.fechainicio = fechainicio;
@@ -44,6 +46,7 @@ public class Proyecto {
         this.totalcorazones = totalcorazones;
         this.totalparticipantes = totalparticipantes;
         this.tipofounding = tipofounding;
+        this.idusuario = idusuario;
     }//constructor
 
     public Proyecto(){}//aqui esta el constructor vacio por default
@@ -132,6 +135,14 @@ public class Proyecto {
         return tipofounding;
     }//gettipofounding
 
+    public Long getIdusuario() {
+        return idusuario;
+    } // getIdusuario
+
+    public void setIdusuario(Long idusuario) {
+        this.idusuario = idusuario;
+    } // setIdusuario
+
     public void setTipofounding(String tipofounding) {
         this.tipofounding = tipofounding;
     }//settipofounding
@@ -150,6 +161,7 @@ public class Proyecto {
                 ", totalcorazones='" + totalcorazones + '\'' +
                 ", totalparticipantes='" + totalparticipantes + '\'' +
                 ", tipofounding='" + tipofounding + '\'' +
+                ", idusuario='" + idusuario + '\'' +
                 '}';
     }//tostring
 }//POJO
