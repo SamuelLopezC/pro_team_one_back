@@ -21,31 +21,28 @@ public class Proyecto {
     private String imagen;
     @Column(name="descripcion", nullable = false)
     private String descripcion;
-    @Column(name="Estatus", nullable = false)
-    private String Estatus;
+    @Column(name="estatus", nullable = false)
+    private String estatus;
     @Column(name="precioinversion", nullable = false)
-    private String precioinversion;
+    private Long precioinversion;
     @Column(name="totalcorazones", nullable = false)
-    private String totalcorazones;
+    private Long totalcorazones;
     @Column(name="totalparticipantes", nullable = false)
-    private String totalparticipantes;
-    @Column(name="idusuario", nullable = false)
-    private String idusuario;
+    private Long totalparticipantes;
     @Column(name="tipofounding", nullable = false)
     private String tipofounding;
 
-    public Proyecto(Long idproyecto, String name, String fechainicio, String fechatermino, String imagen, String descripcion, String estatus, String precioinversion, String totalcorazones, String totalparticipantes, String idusuario, String tipofounding) {
+    public Proyecto(Long idproyecto, String name, String fechainicio, String fechatermino, String imagen, String descripcion, String estatus, Long precioinversion, Long totalcorazones, Long totalparticipantes, String tipofounding) {
         this.idproyecto = idproyecto;
         this.name = name;
         this.fechainicio = fechainicio;
         this.fechatermino = fechatermino;
         this.imagen = imagen;
         this.descripcion = descripcion;
-        this.Estatus = estatus;
+        this.estatus = estatus;
         this.precioinversion = precioinversion;
         this.totalcorazones = totalcorazones;
         this.totalparticipantes = totalparticipantes;
-        this.idusuario = idusuario;
         this.tipofounding = tipofounding;
     }//constructor
 
@@ -100,44 +97,36 @@ public class Proyecto {
     }//setdescripcion
 
     public String getEstatus() {
-        return Estatus;
+        return estatus;
     }//getestatus
 
     public void setEstatus(String estatus) {
-        Estatus = estatus;
+        this.estatus = estatus;
     }//setestatus
 
-    public String getPrecioinversion() {
+    public Long getPrecioinversion() {
         return precioinversion;
     }//getprecioinversion
 
-    public void setPrecioinversion(String precioinversion) {
+    public void setPrecioinversion(Long precioinversion) {
         this.precioinversion = precioinversion;
     }//setprecioinversion
 
-    public String getTotalcorazones() {
+    public Long getTotalcorazones() {
         return totalcorazones;
     }//gettotalcorazones
 
-    public void setTotalcorazones(String totalcorazones) {
+    public void setTotalcorazones(Long totalcorazones) {
         this.totalcorazones = totalcorazones;
     }//settotalcorazones
 
-    public String getTotalparticipantes() {
+    public Long getTotalparticipantes() {
         return totalparticipantes;
     }//gettotalparticipaciones
 
-    public void setTotalparticipantes(String totalparticipantes) {
+    public void setTotalparticipantes(Long totalparticipantes) {
         this.totalparticipantes = totalparticipantes;
     }//settotalparticipaciones
-
-    public String getIdusuario() {
-        return idusuario;
-    }//getidusuario
-
-    public void setIdusuario(String idusuario) {
-        this.idusuario = idusuario;
-    }//setidusuario
 
     public String getTipofounding() {
         return tipofounding;
@@ -156,11 +145,10 @@ public class Proyecto {
                 ", fechatermino='" + fechatermino + '\'' +
                 ", imagen='" + imagen + '\'' +
                 ", descripcion='" + descripcion + '\'' +
-                ", Estatus='" + Estatus + '\'' +
+                ", Estatus='" + estatus + '\'' +
                 ", precioinversion='" + precioinversion + '\'' +
                 ", totalcorazones='" + totalcorazones + '\'' +
                 ", totalparticipantes='" + totalparticipantes + '\'' +
-                ", idusuario='" + idusuario + '\'' +
                 ", tipofounding='" + tipofounding + '\'' +
                 '}';
     }//tostring

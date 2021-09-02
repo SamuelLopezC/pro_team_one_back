@@ -7,6 +7,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping(path="/api/project/")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class ProyectoController {
     private final ProyectoService Ps;
     @Autowired
