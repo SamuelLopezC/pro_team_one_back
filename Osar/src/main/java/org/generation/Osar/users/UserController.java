@@ -1,7 +1,10 @@
 package org.generation.Osar.users;
 
+import org.generation.Osar.publications.Proyecto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path="/api/user/")
@@ -13,6 +16,11 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     } // ends constructor
+
+    @GetMapping
+    public List<User> getUsers(){
+        return userService.getUsers();
+    }//getUsers
 
     @GetMapping(path="{idUser}")
     public User loginUser(@PathVariable("idUser") Long idUser) {

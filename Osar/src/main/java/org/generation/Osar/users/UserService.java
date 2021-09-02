@@ -1,7 +1,9 @@
 package org.generation.Osar.users;
 
+import org.generation.Osar.publications.Proyecto;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -11,6 +13,10 @@ public class UserService {
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     } // ends constructor
+
+    public List<User> getUsers(){
+        return userRepository.findAll();
+    }//getUsers
 
     public User getUser(Long idUser) {
         return userRepository.findById(idUser).orElseThrow(
